@@ -2,61 +2,42 @@
 const randomUserContainer = document.getElementById('users');
 
 (function getRandom() {
-  fetch('https://randomuser.me/api/')
-    .then((response) => response.json())
-    .then((data) => {
-      let results = data.results[0];
-      console.log(results);
-      let { title, first, last } = { ...results.name };
-      let email = results.email;
-      let pic = results.picture.medium;
-      let phoneNo = results.phone;
-      let output = `<div class="card">
+  for (let i = 0; i < 5; i++) {
+    fetch('https://randomuser.me/api/')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (typeof data === 'undefined') {
+          console.log(undefined);
+        } else {
+          // console.log(data);
+          let results = data.results[0];
+          // console.log(results);
+          let { title, first, last } = { ...results.name };
+          let email = results.email;
+          let pic = results.picture.large;
+          let phoneNo = results.phone;
+          let { city, _a, country, _b, _c, street } = results.location;
+          let { name, number } = { ...street };
+          let output = `<div class="card col-md-12">
           <div class="card-body">
-          <img src=${pic} alt="" class="img-fluid card-img-top rounded-circle"/>
+
+          <img src=${pic} alt="" class="img-fluid  rounded-circle float-left com-md-3"/>
+
+          <div class="float-right col-md-9">
           <h3>${title}, ${last} ${first}</h3>
-          <h5 class="text-muted">${country}</h5>
+          <h5 class="text-muted">Address:</h5>
+          Street: ${name}, No: ${number}, ${city}, ${country};
           <p>
-          Phone Number: ${phoneNo}
+          Phone Number: ${phoneNo}</bh>
           Email: ${email}
           </p>
           </div>
+          </div>
           </div>`;
-
-      randomUserContainer.innerHTML = output;
-    })
-    .catch((err) => console.log(err));
+          randomUserContainer.insertAdjacentHTML('afterend', output);
+        }
+      })
+      .catch((err) => console.log(err));
+  }
 })();
-
-// let output = '<h2>Users</h2>';
-// data.forEach(function (user) {
-//   output += `
-//   <div>
-//   <h3>${user.name}
-//   <ul>
-//   <li>ID ${user.id}</li>
-//   <li>Name ${user.email}</li>
-//   <li>Address longtitude ${user.address.geo.lng}</li>
-//   </div>`;
-// });
-
-// document.getElementById('output').innerHTML = output;
-// document.getElementById('output').innerHTML = data;
-
-/**
- *  <div class="card">
-              <div class="card-body">
-                <img
-                  src=${pic}
-                  alt=""
-                  class="img-fluid card-img-top rounded-circle"
-                />
-                <h3>${title}, ${last} ${first}</h3>
-                <h5 class="text-muted">${country}</h5>
-                <p>
-                  Phone Number: ${phoneNo}
-                  Email: ${email}
-                </p>
-              </div>
-            </div>
- */
