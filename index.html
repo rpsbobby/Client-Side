@@ -25,524 +25,624 @@
     <title>Page 1</title>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <div class="container">
-        <a href="index.html" class="navbar-brand"
-          ><i class="fas fa-utensils fa-3x"></i
-        ></a>
-        <button
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#navbar"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active ml-3">
-              <a href="index.html" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item ml-3">
-              <a href="page2.html" class="nav-link">Showcase</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Random Users -->
-
-    <section id="randomUser" class="bg-light p-0 m-0">
-      <header class="py-3 bg-primary text-white">
-        <div class="py-3 d-flex justify-content-center">
-          <h2 class="text-uppercase font-weight-bold display">Users</h2>
-        </div>
-      </header>
-      <div class="container">
+    <section id="loginJumbo" class="d-none">
+      <div class="jumbotron text-center m-5 border-primary">
+        <h1 class="display-1 font-weight-bold text-uppercase">Staff Login</h1>
         <div class="row">
-          <div class="col col-md-2 col-sm-1"></div>
-          <div class="col col-md-8">
-            <div class="d-flex" id="users">
-              <!-- users will be generated here with js -->
+          <div class="col-md-4 m-auto">
+            <div class="form-group">
+              <label for="password">Please Enter Password</label>
+              <input class="form-control" type="password" id="password" />
+              <div id="feedback" class="invalid-feedback hide">
+                Password does not match
+              </div>
             </div>
+            <button
+              id="btnLogIn"
+              class="btn-outline-primary btn-lg btn-block disabled"
+            >
+              Log In
+            </button>
           </div>
-          <!-- flex box end -->
-          <div class="col col-md-2 col-sm-1"></div>
         </div>
       </div>
     </section>
-
-    <!-- menu -->
-
-    <section id="menu" class="bg-dark p-0 m-0">
-      <header class="bg-secondary text-light my-2 py-3">
-        <div class="py-3 d-flex justify-content-center">
-          <h2 class="text-uppercase font-weight-bold display">Menu</h2>
-        </div>
-      </header>
-
-      <div class="container">
-        <!-- starters -->
-        <div class="card mb-2">
-          <div class="card-header p-3">
-            <h4 class="display h1">Starters</h4>
+    <section id="website" class="">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+          <a href="index.html" class="navbar-brand"
+            ><i class="fas fa-utensils fa-3x"> Log Out</i></a
+          >
+          <button
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active ml-3">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item ml-3">
+                <a href="page2.html" class="nav-link">Showcase</a>
+              </li>
+            </ul>
           </div>
-          <table class="table table-striped">
-            <thead class="thead-dark">
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Cost</th>
-                <th>Option</th>
-                <th>Quantity</th>
-                <th>Add to Order</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <th>Chicken Wings</th>
-                <th>
-                  <small class="text-muted"
-                    >frank's hot sauce, blue cheese sauce, celery
-                  </small>
-                </th>
-                <th>€ 8.99</th>
-                <th><i class="fas fa-drumstick-bite"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>2</th>
-                <th>Cesar Salad</th>
-                <th>
-                  <small class="text-muted"
-                    >cesar's dressing, baby gem leafs, garlic crouton, pine nuts
-                  </small>
-                </th>
-                <th>€ 6.49</th>
-                <th><i class="fas fa-carrot"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>3</th>
-                <th>Garlic Bread</th>
-                <th>
-                  <small class="text-muted"
-                    >sourdough vread, garlic butter, basil dressing
-                  </small>
-                </th>
-                <th>€ 4.99</th>
-                <th><i class="fas fa-carrot"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>4</th>
-                <th>Saute Prawns</th>
-                <th>
-                  <small class="text-muted"
-                    >king prawns, chilly, line, shallot, grilled brioche
-                  </small>
-                </th>
-                <th>€ 4.99</th>
-                <th><i class="fas fa-fish"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-            </tbody>
-          </table>
         </div>
-        <!-- main -->
-        <div class="card mb-2">
-          <div class="card-header p-3">
-            <h4 class="display h1">Main</h4>
+      </nav>
+
+      <!-- Random Users -->
+
+      <section id="randomUser" class="bg-light p-0 m-0">
+        <header class="py-3 bg-info text-white">
+          <div class="py-3 d-flex justify-content-center">
+            <h2 class="text-uppercase font-weight-bold display">Users</h2>
           </div>
-          <table class="table table-striped">
-            <thead class="thead-dark">
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Cost</th>
-                <th>Option</th>
-                <th>Quantity</th>
-                <th>Add to Order</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <th>20oz RibEye Steak</th>
-                <th>
-                  <small class="text-muted"
-                    >sweet potato fries, steamed brocollie, peppercorn sauce
-                  </small>
-                </th>
-                <th>€ 23.99</th>
-                <th><i class="fas fa-drumstick-bite"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>2</th>
-                <th>Veg Lasagne</th>
-                <th>
-                  <small class="text-muted"
-                    >veg, bechamel sauce, tomato sauce, lasagne sheets
-                  </small>
-                </th>
-                <th>€ 14.99</th>
-                <th><i class="fas fa-carrot"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>3</th>
-                <th>Pan Fried Salmon</th>
-                <th>
-                  <small class="text-muted"
-                    >mash potato, asparagus, beurre blanc, lemon
-                  </small>
-                </th>
-                <th>€ 18.99</th>
-                <th><i class="fas fa-fish"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>4</th>
-                <th>Chicken Pie</th>
-                <th>
-                  <small class="text-muted"
-                    >seasonal veg, tarragon white sauce, puff pastry
-                  </small>
-                </th>
-                <th>€ 12.99</th>
-                <th><i class="fas fa-drumstick-bite"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- desserts -->
-
-        <div class="card mb-2">
-          <div class="card-header p-3">
-            <h4 class="display h1">Desserts</h4>
+        </header>
+        <div class="container">
+          <div class="row">
+            <div class="col col-md-2 col-sm-1"></div>
+            <div class="col col-md-8">
+              <div class="d-flex" id="users">
+                <!-- users will be generated here with js -->
+              </div>
+            </div>
+            <!-- flex box end -->
+            <div class="col col-md-2 col-sm-1"></div>
           </div>
-          <table class="table table-striped">
-            <thead class="thead-dark">
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Cost</th>
-                <th>Option</th>
-                <th>Quantity</th>
-                <th>Add to Order</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <th>Creme Brulee</th>
-                <th>
-                  <small class="text-muted"
-                    >cream, eggs, vanilla pod, carmelized sugar
-                  </small>
-                </th>
-                <th>€ 5.99</th>
-                <th><i class="fas fa-carrot"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>2</th>
-                <th>Chocolate Brownie</th>
-                <th>
-                  <small class="text-muted"
-                    >chocolate, eggs, flower, milk
-                  </small>
-                </th>
-                <th>€ 5.99</th>
-                <th><i class="fas fa-carrot"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>3</th>
-                <th>Apple Tart</th>
-                <th>
-                  <small class="text-muted"
-                    >pastry, apple, cinnamon, brandy
-                  </small>
-                </th>
-                <th>€ 5.99</th>
-                <th><i class="fas fa-carrot"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-            </tbody>
-          </table>
         </div>
-        <!-- drinks -->
+      </section>
 
-        <div class="card mb-2">
-          <div class="card-header p-3">
-            <h4 class="display h1">Drinks</h4>
+      <!-- menu -->
+
+      <section id="menu" class="bg-danger pb-2 m-0">
+        <header class="bg-secondary text-light my-2 py-3">
+          <div class="py-3 d-flex justify-content-center">
+            <h2 class="text-uppercase font-weight-bold display">Menu</h2>
           </div>
-          <table class="table table-striped">
-            <thead class="thead-dark">
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Cost</th>
-                <th>Option</th>
-                <th>Quantity</th>
-                <th>Add to Order</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <th>Soft Drinks 0.33l</th>
-                <th>
-                  <small class="text-muted"
-                    >coke /zero, 7up /zero, club orange /zero
-                  </small>
-                </th>
-                <th>€ 2.99</th>
-                <th><i class="fas fa-glass-whiskey"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>2</th>
-                <th>Glass of House Wine</th>
-                <th>
-                  <small class="text-muted">red, white </small>
-                </th>
-                <th>€ 5.99</th>
-                <th><i class="fas fa-wine-glass-alt"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>3</th>
-                <th>Beer Draft Pint</th>
-                <th>
-                  <small class="text-muted"
-                    >heineken, guiness, hop house 13
-                  </small>
-                </th>
-                <th>€ 5.99</th>
-                <th><i class="fas fa-beer"></i></th>
-                <th>
-                  <form>
-                    <input type="text" placeholder="1" class="form-control" />
-                  </form>
-                </th>
-                <th>
-                  <button class="btn btn-outline-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
-                </th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- price brekdown -->
+        </header>
 
-        <div class="card mb-2">
-          <div class="card-header p-3">
-            <h4 class="display h1">Breakdown</h4>
+        <div class="container">
+          <!-- starters -->
+          <div class="card mb-2">
+            <div class="card-header p-3">
+              <h4 class="display h1">Starters</h4>
+            </div>
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Cost</th>
+                  <th>Option</th>
+                  <th>Quantity</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <th>Chicken Wings</th>
+                  <th>
+                    <small class="text-muted"
+                      >frank's hot sauce, blue cheese sauce, celery
+                    </small>
+                  </th>
+                  <th>€ 8.99</th>
+                  <th><i class="fas fa-drumstick-bite"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>Cesar Salad</th>
+                  <th>
+                    <small class="text-muted"
+                      >cesar's dressing, baby gem leafs, garlic crouton, pine
+                      nuts
+                    </small>
+                  </th>
+                  <th>€ 6.49</th>
+                  <th><i class="fas fa-carrot"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <th>Garlic Bread</th>
+                  <th>
+                    <small class="text-muted"
+                      >sourdough vread, garlic butter, basil dressing
+                    </small>
+                  </th>
+                  <th>€ 4.99</th>
+                  <th><i class="fas fa-carrot"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th>4</th>
+                  <th>Saute Prawns</th>
+                  <th>
+                    <small class="text-muted"
+                      >king prawns, chilly, line, shallot, grilled brioche
+                    </small>
+                  </th>
+                  <th>€ 8.99</th>
+                  <th><i class="fas fa-fish"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>
+                    <button class="btn btn-outline-primary btn-block">
+                      Add to Baskek
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                  </th>
+                  <th></th>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <table class="table table-striped">
-            <thead class="thead-dark">
-              <tr>
-                <th>#</th>
-                <th>Course</th>
-                <th></th>
-                <th>Cost €</th>
-                <th>Veg Cost €</th>
-                <th>Non-veg Cost €</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <th>Starter</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>
-                  <span>$</span>
-                </th>
-              </tr>
+          <!-- main -->
+          <div class="card mb-2">
+            <div class="card-header p-3">
+              <h4 class="display h1">Main</h4>
+            </div>
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Cost</th>
+                  <th>Option</th>
+                  <th>Quantity</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <th>20oz RibEye Steak</th>
+                  <th>
+                    <small class="text-muted"
+                      >sweet potato fries, steamed brocollie, peppercorn sauce
+                    </small>
+                  </th>
+                  <th>€ 23.99</th>
+                  <th><i class="fas fa-drumstick-bite"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>Veg Lasagne</th>
+                  <th>
+                    <small class="text-muted"
+                      >veg, bechamel sauce, tomato sauce, lasagne sheets
+                    </small>
+                  </th>
+                  <th>€ 14.99</th>
+                  <th><i class="fas fa-carrot"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <th>Pan Fried Salmon</th>
+                  <th>
+                    <small class="text-muted"
+                      >mash potato, asparagus, beurre blanc, lemon
+                    </small>
+                  </th>
+                  <th>€ 18.99</th>
+                  <th><i class="fas fa-fish"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th>4</th>
+                  <th>Chicken Pie</th>
+                  <th>
+                    <small class="text-muted"
+                      >seasonal veg, tarragon white sauce, puff pastry
+                    </small>
+                  </th>
+                  <th>€ 12.99</th>
+                  <th><i class="fas fa-drumstick-bite"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>
+                    <button class="btn btn-outline-primary btn-block">
+                      Add to Baskek
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                  </th>
+                  <th></th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-              <tr>
-                <th>2</th>
-                <th>Main</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>
-                  <span>$</span>
-                </th>
-              </tr>
-              <tr>
-                <th>3</th>
-                <th>Dessers</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>
-                  <span>$</span>
-                </th>
-              </tr>
-              <tr>
-                <th>4</th>
-                <th>Drinks</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>
-                  <span>$</span>
-                </th>
-              </tr>
-              <tr>
-                <th>5</th>
-                <th>Total</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>
-                  <span>$</span>
-                </th>
-              </tr>
-            </tbody>
-          </table>
+          <!-- desserts -->
+
+          <div class="card mb-2">
+            <div class="card-header p-3">
+              <h4 class="display h1">Desserts</h4>
+            </div>
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Cost</th>
+                  <th>Option</th>
+                  <th>Quantity</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <th>Creme Brulee</th>
+                  <th>
+                    <small class="text-muted"
+                      >cream, eggs, vanilla pod, carmelized sugar
+                    </small>
+                  </th>
+                  <th>€ 5.99</th>
+                  <th><i class="fas fa-carrot"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>Chocolate Brownie</th>
+                  <th>
+                    <small class="text-muted"
+                      >chocolate, eggs, flower, milk
+                    </small>
+                  </th>
+                  <th>€ 5.99</th>
+                  <th><i class="fas fa-carrot"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <th>Apple Tart</th>
+                  <th>
+                    <small class="text-muted"
+                      >pastry, apple, cinnamon, brandy
+                    </small>
+                  </th>
+                  <th>€ 5.99</th>
+                  <th><i class="fas fa-carrot"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>
+                    <button class="btn btn-outline-primary btn-block">
+                      Add to Baskek
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                  </th>
+                  <th></th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- drinks -->
+
+          <div class="card mb-2">
+            <div class="card-header p-3">
+              <h4 class="display h1">Drinks</h4>
+            </div>
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Cost</th>
+                  <th>Option</th>
+                  <th>Quantity</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <th>Soft Drinks 0.33l</th>
+                  <th>
+                    <small class="text-muted"
+                      >coke /zero, 7up /zero, club orange /zero
+                    </small>
+                  </th>
+                  <th>€ 2.99</th>
+                  <th><i class="fas fa-glass-whiskey"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>Glass of House Wine</th>
+                  <th>
+                    <small class="text-muted">red, white </small>
+                  </th>
+                  <th>€ 5.99</th>
+                  <th><i class="fas fa-wine-glass-alt"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <th>Beer Draft Pint</th>
+                  <th>
+                    <small class="text-muted"
+                      >heineken, guiness, hop house 13
+                    </small>
+                  </th>
+                  <th>€ 5.99</th>
+                  <th><i class="fas fa-beer"></i></th>
+                  <th>
+                    <form>
+                      <input type="text" placeholder="0" class="form-control" />
+                    </form>
+                  </th>
+                  <th>
+                    <!-- <button class="btn btn-outline-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button> -->
+                  </th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>
+                    <button class="btn btn-outline-primary btn-block">
+                      Add to Baskek
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                  </th>
+                  <th></th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- price brekdown -->
+
+          <div class="card mb-2">
+            <div class="card-header p-3">
+              <h4 class="display h1">Breakdown</h4>
+            </div>
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Course</th>
+                  <th></th>
+                  <th>Cost €</th>
+                  <th>Veg Cost €</th>
+                  <th>Non-veg Cost €</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <th>Starter</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>
+                    <span>$</span>
+                  </th>
+                </tr>
+
+                <tr>
+                  <th>2</th>
+                  <th>Main</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>
+                    <span>$</span>
+                  </th>
+                </tr>
+
+                <tr>
+                  <th>3</th>
+                  <th>Dessers</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>
+                    <span>$</span>
+                  </th>
+                </tr>
+
+                <tr>
+                  <th>4</th>
+                  <th>Drinks</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>
+                    <span>$</span>
+                  </th>
+                </tr>
+
+                <tr>
+                  <th>5</th>
+                  <th>Total</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>
+                    <span>$</span>
+                  </th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+
+                  <th>
+                    <button class="btn btn-outline-primary btn-block">
+                      Paid
+                      <i class="fas fa-check-circle"></i>
+                    </button>
+                  </th>
+                  <th></th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <!-- website end -->
     </section>
-
     <script src="/script/page1.js"></script>
     <!-- BOOTSTRAP JAVASCRIPY AND JQUERY -->
     <script
