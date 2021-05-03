@@ -54,14 +54,303 @@
     <!-- Random Users -->
 
     <section id="randomUser">
+      <header class="py-2 mb-1 bg-warning">
+        <div class="py-3 d-flex justify-content-center">
+          <h2 class="text-uppercase font-weight-bold display">Users</h2>
+        </div>
+      </header>
       <div class="container">
         <div class="row">
           <div class="col col-md-2 col-sm-1"></div>
           <div class="col col-md-8">
-            <div class="d-flex" id="users"></div>
+            <div class="d-flex" id="users">
+              <!-- users will be generated here with js -->
+            </div>
           </div>
           <!-- flex box end -->
           <div class="col col-md-2 col-sm-1"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- menu -->
+
+    <section id="menu">
+      <header class="bg-danger text-warning my-2 py-3">
+        <div class="py-3 d-flex justify-content-center">
+          <h2 class="text-uppercase font-weight-bold display">Menu</h2>
+        </div>
+      </header>
+
+      <div class="container">
+        <!-- starters -->
+        <div class="card mb-2">
+          <div class="card-header">
+            <h4 class="display">Starters</h4>
+          </div>
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Cost</th>
+                <th>Option</th>
+                <th>Quantity</th>
+                <th>Add to Order</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <th>Chicken Wings</th>
+                <th>
+                  <small class="text-muted"
+                    >frank's hot sauce, blue cheese sauce, celery
+                  </small>
+                </th>
+                <th>€ 8.99</th>
+                <th><i class="fas fa-drumstick-bite"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+              <tr>
+                <th>2</th>
+                <th>Cesar Salad</th>
+                <th>
+                  <small class="text-muted"
+                    >cesar's dressing, baby gem leafs, garlic crouton, pine nuts
+                  </small>
+                </th>
+                <th>€ 6.49</th>
+                <th><i class="fas fa-carrot"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+              <tr>
+                <th>3</th>
+                <th>Garlic Bread</th>
+                <th>
+                  <small class="text-muted"
+                    >sourdough vread, garlic butter, basil dressing
+                  </small>
+                </th>
+                <th>€ 4.99</th>
+                <th><i class="fas fa-carrot"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+              <tr>
+                <th>4</th>
+                <th>Saute Prawns</th>
+                <th>
+                  <small class="text-muted"
+                    >king prawns, chilly, line, shallot, grilled brioche
+                  </small>
+                </th>
+                <th>€ 4.99</th>
+                <th><i class="fas fa-fish"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- main -->
+        <div class="card mb-2">
+          <div class="card-header">
+            <h4 class="display">Main</h4>
+          </div>
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Cost</th>
+                <th>Option</th>
+                <th>Quantity</th>
+                <th>Add to Order</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <th>20oz RibEye Steak</th>
+                <th>
+                  <small class="text-muted"
+                    >sweet potato fries, steamed brocollie, peppercorn sauce
+                  </small>
+                </th>
+                <th>€ 23.99</th>
+                <th><i class="fas fa-drumstick-bite"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+              <tr>
+                <th>2</th>
+                <th>Veg Lasagne</th>
+                <th>
+                  <small class="text-muted"
+                    >carrots,brocollie, cauliflower, bechamel sauce, tomato
+                    sauce, lasagne sheets
+                  </small>
+                </th>
+                <th>€ 14.99</th>
+                <th><i class="fas fa-carrot"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+              <tr>
+                <th>3</th>
+                <th>Pan Fried Salmon</th>
+                <th>
+                  <small class="text-muted"
+                    >mash potato, asparagus, beurre blanc, lemon
+                  </small>
+                </th>
+                <th>€ 18.99</th>
+                <th><i class="fas fa-fish"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+              <tr>
+                <th>4</th>
+                <th>Chicken Pie</th>
+                <th>
+                  <small class="text-muted"
+                    >seasonal veg, tarragon white sauce, puff pastry
+                  </small>
+                </th>
+                <th>€ 12.99</th>
+                <th><i class="fas fa-drumstick-bite"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- desserts -->
+        <div class="card mb-2">
+          <div class="card-header">
+            <h4 class="display">Desserts</h4>
+          </div>
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Cost</th>
+                <th>Option</th>
+                <th>Quantity</th>
+                <th>Add to Order</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <th>Creme Brulee</th>
+                <th>
+                  <small class="text-muted"
+                    >sweet potato fries, steamed brocollie, peppercorn sauce
+                  </small>
+                </th>
+                <th>€ 23.99</th>
+                <th><i class="fas fa-drumstick-bite"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+              <tr>
+                <th>2</th>
+                <th>Veg Lasagne</th>
+                <th>
+                  <small class="text-muted"
+                    >carrots,brocollie, cauliflower, bechamel sauce, tomato
+                    sauce, lasagne sheets
+                  </small>
+                </th>
+                <th>€ 14.99</th>
+                <th><i class="fas fa-carrot"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+              <tr>
+                <th>3</th>
+                <th>Pan Fried Salmon</th>
+                <th>
+                  <small class="text-muted"
+                    >mash potato, asparagus, beurre blanc, lemon
+                  </small>
+                </th>
+                <th>€ 18.99</th>
+                <th><i class="fas fa-fish"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+              <tr>
+                <th>4</th>
+                <th>Chicken Pie</th>
+                <th>
+                  <small class="text-muted"
+                    >seasonal veg, tarragon white sauce, puff pastry
+                  </small>
+                </th>
+                <th>€ 12.99</th>
+                <th><i class="fas fa-drumstick-bite"></i></th>
+                <th>in</th>
+                <th>
+                  <button class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
