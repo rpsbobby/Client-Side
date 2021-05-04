@@ -1,6 +1,3 @@
-// const menu = [starters, mains, desserts, drinks];
-// console.log(menu);
-
 // Password Validation
 const paswordField = document.getElementById('password');
 const regEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/gm;
@@ -110,6 +107,7 @@ const startedBtnAdd = document.getElementById('starterBtnAdd');
 const mainsBtnAdd = document.getElementById('mainsBtnAdd');
 const dessertsBtnAdd = document.getElementById('dessertsBtnAdd');
 const drinksBtnAdd = document.getElementById('drinksBtnAdd');
+const paidBtn = document.getElementById('paid');
 
 // cost output fields
 
@@ -129,32 +127,31 @@ let startersSum = [[], [], []]; // total / veg / nonveg
 let mainsSum = [[], [], []]; // total / veg / nonveg
 let dessertsSum = [[], [], []]; // total / veg / nonveg
 let drinksSum = [[], [], []]; // total / veg / nonveg
-const totalCost = [startersSum, mainsSum, dessertsSum, drinksSum];
-const tot = startersSum
-  .slice(0, 1)
-  .concat(mainsSum.slice(0, 1))
-  .concat(dessertsSum.slice(0, 1))
-  .concat(drinksSum.slice(0, 1));
+let totalCost = [startersSum, mainsSum, dessertsSum, drinksSum];
 
 // methods
+
 const dispEuro = function (p) {
   return `€${p.toFixed(2)}`;
 };
 
-const caclTotal = function (array) {
-  const calcSum = (a) =>
-    a.flat().reduce((sum, current) => {
-      sum += current;
-      return sum;
-    }, 0);
-  // console.log(array);
+const calcSum = (a) =>
+  a.flat().reduce((sum, current) => {
+    sum += current;
+    return sum;
+  }, 0);
 
+const updateBreakdown = function (array) {
   const [totStarters, vegStarers, nonVegStarters] = [
     ...array.slice(0, 1).flat(),
   ];
   const [totMain, vegMain, nonVegMain] = [...array.slice(1, 2).flat()];
   const dessertTotalVal = array[2][0];
   const drinksTotalVal = array[3][0];
+  const totVal = totStarters
+    .concat(totMain)
+    .concat(dessertTotalVal)
+    .concat(drinksTotalVal);
 
   starterVeg.innerHTML = dispEuro(calcSum(vegStarers));
   starterNonVeg.innerHTML = dispEuro(calcSum(nonVegStarters));
@@ -164,17 +161,15 @@ const caclTotal = function (array) {
   mainTotal.innerHTML = dispEuro(calcSum(totMain));
   dessertTotal.innerHTML = dispEuro(calcSum(dessertTotalVal));
   drinksTotal.innerHTML = dispEuro(calcSum(drinksTotalVal));
-  total.innerHTML = dispEuro(calcSum(tot));
+  total.innerHTML = dispEuro(calcSum(totVal));
 };
 
 const addToOrder = function (menuItems, courseSumArray) {
   Object.entries(menuItems).forEach(([i, currenItem]) => {
     let temp = document.getElementById(`${currenItem.name}`);
-    console.log(temp);
     let price = Number(currenItem.price);
     let itemQuanity = Number(temp.value);
-    // console.log(price);
-    // console.log(itemQuanity);
+
     let sum = price * itemQuanity;
     if (menuItems[i] !== 0 && sum !== 0) {
       courseSumArray[0].push(sum);
@@ -182,17 +177,13 @@ const addToOrder = function (menuItems, courseSumArray) {
       if (menuItems[i].vegeterian) {
         courseSumArray[1].push(sum);
       } else {
-        console.log(menuItems[i]);
         courseSumArray[2].push(sum);
       }
     }
   });
-  cleanInputFields(menuItems);
-  // console.log('total');
-  // console.log(total);
-  caclTotal(totalCost);
 
-  // console.log(courseSumArray[0], courseSumArray[1], courseSumArray[2]); // debugging
+  cleanInputFields(menuItems);
+  updateBreakdown(totalCost);
 };
 
 const cleanInputFields = function (menuItems) {
@@ -206,7 +197,6 @@ const cleanInputFields = function (menuItems) {
 startedBtnAdd.addEventListener('click', function (e) {
   e.preventDefault();
   addToOrder(starters, startersSum);
-  // cleanInputFields(starters);
 });
 
 mainsBtnAdd.addEventListener('click', function (e) {
@@ -222,4 +212,14 @@ dessertsBtnAdd.addEventListener('click', function (e) {
 drinksBtnAdd.addEventListener('click', function (e) {
   e.preventDefault();
   addToOrder(drinks, drinksSum);
+});
+
+paidBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  startersSum = [[], [], []]; // total / veg / nonveg
+  mainsSum = [[], [], []]; // total / veg / nonveg
+  dessertsSum = [[], [], []]; // total / veg / nonveg
+  drinksSum = [[], [], []]; // total / veg / nonveg
+  totalCost = [startersSum, mainsSum, dessertsSum, drinksSum];
+  updateBreakdown(totalCost);
 });
