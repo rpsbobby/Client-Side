@@ -7,8 +7,7 @@ const regEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/gm
 const btnLogIn = document.getElementById('btnLogIn');
 const feedback = document.getElementById('feedback');
 
-paswordField.addEventListener('keyup', function (e) {
-  e.preventDefault();
+const validate = function () {
   const password = String(paswordField.value);
   if (!password.match(regEx)) {
     paswordField.classList.add('is-invalid');
@@ -19,6 +18,11 @@ paswordField.addEventListener('keyup', function (e) {
     paswordField.classList.add('is-valid');
     feedback.classList.add('hide');
   }
+};
+
+paswordField.addEventListener('keyup', function (e) {
+  e.preventDefault();
+  validate();
 });
 
 // // generate Random Users
@@ -101,36 +105,67 @@ const drinks = {
   2: { name: 'beer', price: 5.99 },
 };
 
-const caclTotal = function (array) {
-  const calc = (a) =>
-    a.flat().reduce((sum, current) => {
-      sum += current;
-      console.log(sum);
-      return sum;
-    }, 0);
-  // const starterAndMain = array.slice(0, 2); // retrieving starter and main arrays
-  // console.log(starterAndMain);
-  const [totStar, vegStar, nonvegStar] = [...array.slice(0, 1)];
-  const [totMain, vegMain, nonvegMin] = [...array.slice(1, 2)];
-  console.log('starters');
-  console.log(totStar, vegStar, nonvegStar);
-  console.log('mians');
-  console.log(totMain, vegMain, nonvegMin);
-  const dessertTotal = calc(array[2][0]);
-  const drinksTotal = calc(array[3][0]);
-};
-
 // add buttons
 const startedBtnAdd = document.getElementById('starterBtnAdd');
 const mainsBtnAdd = document.getElementById('mainsBtnAdd');
 const dessertsBtnAdd = document.getElementById('dessertsBtnAdd');
 const drinksBtnAdd = document.getElementById('drinksBtnAdd');
 
+// cost output fields
+
+const starterVeg = document.getElementById('starterVeg');
+const starterNonVeg = document.getElementById('starterNonVeg');
+const starterTotal = document.getElementById('starterTotal');
+const mainVeg = document.getElementById('mainVeg');
+const mainNonVeg = document.getElementById('mainNonVeg');
+const mainTotal = document.getElementById('mainTotal');
+const dessertTotal = document.getElementById('dessertsTotal');
+const drinksTotal = document.getElementById('drinksTotal');
+const total = document.getElementById('total');
+
+// cost arrays
+
 let startersSum = [[], [], []]; // total / veg / nonveg
 let mainsSum = [[], [], []]; // total / veg / nonveg
 let dessertsSum = [[], [], []]; // total / veg / nonveg
 let drinksSum = [[], [], []]; // total / veg / nonveg
-const total = [startersSum, mainsSum, dessertsSum, drinksSum];
+const totalCost = [startersSum, mainsSum, dessertsSum, drinksSum];
+const tot = startersSum
+  .slice(0, 1)
+  .concat(mainsSum.slice(0, 1))
+  .concat(dessertsSum.slice(0, 1))
+  .concat(drinksSum.slice(0, 1));
+
+// methods
+const dispEuro = function (p) {
+  return `€${p.toFixed(2)}`;
+};
+
+const caclTotal = function (array) {
+  const calcSum = (a) =>
+    a.flat().reduce((sum, current) => {
+      sum += current;
+      return sum;
+    }, 0);
+  // console.log(array);
+
+  const [totStarters, vegStarers, nonVegStarters] = [
+    ...array.slice(0, 1).flat(),
+  ];
+  const [totMain, vegMain, nonVegMain] = [...array.slice(1, 2).flat()];
+  const dessertTotalVal = array[2][0];
+  const drinksTotalVal = array[3][0];
+
+  starterVeg.innerHTML = dispEuro(calcSum(vegStarers));
+  starterNonVeg.innerHTML = dispEuro(calcSum(nonVegStarters));
+  starterTotal.innerHTML = dispEuro(calcSum(totStarters));
+  mainVeg.innerHTML = dispEuro(calcSum(vegMain));
+  mainNonVeg.innerHTML = dispEuro(calcSum(nonVegMain));
+  mainTotal.innerHTML = dispEuro(calcSum(totMain));
+  dessertTotal.innerHTML = dispEuro(calcSum(dessertTotalVal));
+  drinksTotal.innerHTML = dispEuro(calcSum(drinksTotalVal));
+  total.innerHTML = dispEuro(calcSum(tot));
+};
 
 const addToOrder = function (menuItems, courseSumArray) {
   Object.entries(menuItems).forEach(([i, currenItem]) => {
@@ -155,7 +190,7 @@ const addToOrder = function (menuItems, courseSumArray) {
   cleanInputFields(menuItems);
   // console.log('total');
   // console.log(total);
-  caclTotal(total);
+  caclTotal(totalCost);
 
   // console.log(courseSumArray[0], courseSumArray[1], courseSumArray[2]); // debugging
 };
@@ -165,6 +200,8 @@ const cleanInputFields = function (menuItems) {
     document.getElementById(`${currenItem.name}`).value = 0;
   });
 };
+
+// event handlers for menu section
 
 startedBtnAdd.addEventListener('click', function (e) {
   e.preventDefault();
