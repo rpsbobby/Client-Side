@@ -20,19 +20,20 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
 
     <title>Page 1</title>
   </head>
   <body>
     <section id="loginJumbo" class="">
-      <div class="jumbotron text-center m-5 border-primary">
+      <div class="jumbotron text-center m-5 border-primary bg-info" id="jumbo">
         <h1 class="display-1 font-weight-bold text-uppercase">Staff Login</h1>
         <div class="row">
           <div class="col-md-4 m-auto">
             <div class="form-group">
               <label for="password">Please Enter Password</label>
               <input class="form-control" type="password" id="password" />
+
               <div id="feedback" class="invalid-feedback hide">
                 Password does not match
               </div>
@@ -715,7 +716,7 @@
 
       <!-- website end -->
     </section>
-    <script src="/script/page1.js"></script>
+    <script src="script/page1.js"></script>
     <!-- BOOTSTRAP JAVASCRIPY AND JQUERY -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

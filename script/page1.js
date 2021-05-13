@@ -1,6 +1,7 @@
 // Password Validation
 const paswordField = document.getElementById('password');
-const regEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/gm;
+const regEx =
+  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/gm;
 const btnLogIn = document.getElementById('btnLogIn');
 const feedback = document.getElementById('feedback');
 
@@ -29,7 +30,6 @@ const getUsers = function getRandom() {
     fetch('https://randomuser.me/api/')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (typeof data === 'undefined') {
           console.log(undefined);
         } else {
@@ -123,16 +123,32 @@ const total = document.getElementById('total');
 
 // cost arrays
 
-let startersSum = [[], [], []]; // total / veg / nonveg
-let mainsSum = [[], [], []]; // total / veg / nonveg
-let dessertsSum = [[], [], []]; // total / veg / nonveg
-let drinksSum = [[], [], []]; // total / veg / nonveg
+let startersSum = {
+  total: [],
+  veg: [],
+  nonVeg: [],
+}; // total / veg / nonveg
+let mainsSum = {
+  total: [],
+  veg: [],
+  nonVeg: [],
+}; // total / veg / nonveg
+let dessertsSum = {
+  total: [],
+  veg: [],
+  nonVeg: [],
+}; // total / veg / nonveg
+let drinksSum = {
+  total: [],
+  veg: [],
+  nonVeg: [],
+}; // total / veg / nonveg
 let totalCost = [startersSum, mainsSum, dessertsSum, drinksSum];
 
 // methods
 
-const dispEuro = function (p) {
-  return `€${p.toFixed(2)}`;
+const dispEuro = function (n) {
+  return `€${n.toFixed(2)}`;
 };
 
 const calcSum = (a) =>
@@ -142,42 +158,48 @@ const calcSum = (a) =>
   }, 0);
 
 const updateBreakdown = function (array) {
-  const [totStarters, vegStarers, nonVegStarters] = [
-    ...array.slice(0, 1).flat(),
-  ];
-  const [totMain, vegMain, nonVegMain] = [...array.slice(1, 2).flat()];
-  const dessertTotalVal = array[2][0];
-  const drinksTotalVal = array[3][0];
-  const totVal = totStarters
-    .concat(totMain)
-    .concat(dessertTotalVal)
-    .concat(drinksTotalVal);
+  // const [totStarters, vegStarers, nonVegStarters] = [
+  //   ...array.slice(0, 1).flat(),
+  // ];
 
-  starterVeg.innerHTML = dispEuro(calcSum(vegStarers));
-  starterNonVeg.innerHTML = dispEuro(calcSum(nonVegStarters));
-  starterTotal.innerHTML = dispEuro(calcSum(totStarters));
-  mainVeg.innerHTML = dispEuro(calcSum(vegMain));
-  mainNonVeg.innerHTML = dispEuro(calcSum(nonVegMain));
-  mainTotal.innerHTML = dispEuro(calcSum(totMain));
-  dessertTotal.innerHTML = dispEuro(calcSum(dessertTotalVal));
-  drinksTotal.innerHTML = dispEuro(calcSum(drinksTotalVal));
+  const [starters, mains, desserts, drinks] = [...array];
+
+  // const [totMain, vegMain, nonVegMain] = [...array.slice(1, 2).flat()];
+  // const dessertTotalVal = array[2][0];
+  // const drinksTotalVal = array[3][0];
+  const totVal = starters.total
+    .concat(mains.total)
+    .concat(desserts.total)
+    .concat(drinks.total);
+
+  starterVeg.innerHTML = dispEuro(calcSum(starters.veg.flat()));
+  starterNonVeg.innerHTML = dispEuro(calcSum(starters.nonVeg.flat()));
+  starterTotal.innerHTML = dispEuro(calcSum(starters.total.flat()));
+  mainVeg.innerHTML = dispEuro(calcSum(mains.veg.flat()));
+  mainNonVeg.innerHTML = dispEuro(calcSum(mains.nonVeg.flat()));
+  mainTotal.innerHTML = dispEuro(calcSum(mains.total.flat()));
+  dessertTotal.innerHTML = dispEuro(calcSum(desserts.total.flat()));
+  drinksTotal.innerHTML = dispEuro(calcSum(drinks.total.flat()));
   total.innerHTML = dispEuro(calcSum(totVal));
 };
 
-const addToOrder = function (menuItems, courseSumArray) {
+const addToOrder = function (menuItems, courseSumObject) {
   Object.entries(menuItems).forEach(([i, currenItem]) => {
     let temp = document.getElementById(`${currenItem.name}`);
     let price = Number(currenItem.price);
-    let itemQuanity = Number(temp.value);
+    let quanity = Number(temp.value);
 
-    let sum = price * itemQuanity;
-    if (menuItems[i] !== 0 && sum !== 0) {
-      courseSumArray[0].push(sum);
+    let sum = price * quanity;
+    if (sum !== 0) {
+      courseSumObject.total.push(sum);
+      console.log(`number ${sum} added to ${courseSumObject.total} total`);
 
       if (menuItems[i].vegeterian) {
-        courseSumArray[1].push(sum);
+        courseSumObject.veg.push(sum);
+        console.log(`number ${sum} added to ${courseSumObject.veg} veg`);
       } else {
-        courseSumArray[2].push(sum);
+        courseSumObject.nonVeg.push(sum);
+        console.log(`number ${sum} added to ${courseSumObject.nonVeg} nonveg`);
       }
     }
   });
@@ -187,7 +209,7 @@ const addToOrder = function (menuItems, courseSumArray) {
 };
 
 const cleanInputFields = function (menuItems) {
-  Object.entries(menuItems).forEach(([i, currenItem]) => {
+  Object.entries(menuItems).forEach(([_i, currenItem]) => {
     document.getElementById(`${currenItem.name}`).value = 0;
   });
 };
@@ -216,10 +238,10 @@ drinksBtnAdd.addEventListener('click', function (e) {
 
 paidBtn.addEventListener('click', function (e) {
   e.preventDefault();
-  startersSum = [[], [], []]; // total / veg / nonveg
-  mainsSum = [[], [], []]; // total / veg / nonveg
-  dessertsSum = [[], [], []]; // total / veg / nonveg
-  drinksSum = [[], [], []]; // total / veg / nonveg
-  totalCost = [startersSum, mainsSum, dessertsSum, drinksSum];
+  totalCost.map((obj) => {
+    obj.total = [];
+    obj.veg = [];
+    obj.nonVeg = [];
+  });
   updateBreakdown(totalCost);
 });
