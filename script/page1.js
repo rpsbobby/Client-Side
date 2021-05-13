@@ -15,6 +15,11 @@ const validate = function () {
     paswordField.classList.remove('is-invalid');
     paswordField.classList.add('is-valid');
     feedback.classList.add('hide');
+    btnLogIn.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('loginJumbo').classList.add('d-none');
+      document.getElementById('website').classList.remove('d-none');
+    });
   }
 };
 
@@ -24,8 +29,9 @@ paswordField.addEventListener('keyup', function (e) {
 });
 
 // // generate Random Users
+getUsers();
 const randomUserContainer = document.getElementById('users');
-const getUsers = function getRandom() {
+function getUsers() {
   for (let i = 0; i < 5; i++) {
     fetch('https://randomuser.me/api/')
       .then((response) => response.json())
@@ -66,13 +72,7 @@ const getUsers = function getRandom() {
       })
       .catch((err) => console.log(err));
   }
-};
-btnLogIn.addEventListener('click', function (e) {
-  e.preventDefault();
-  document.getElementById('loginJumbo').classList.add('d-none');
-  document.getElementById('website').classList.remove('d-none');
-  getUsers();
-});
+}
 
 //    Menu
 
@@ -158,15 +158,8 @@ const calcSum = (a) =>
   }, 0);
 
 const updateBreakdown = function (array) {
-  // const [totStarters, vegStarers, nonVegStarters] = [
-  //   ...array.slice(0, 1).flat(),
-  // ];
-
   const [starters, mains, desserts, drinks] = [...array];
 
-  // const [totMain, vegMain, nonVegMain] = [...array.slice(1, 2).flat()];
-  // const dessertTotalVal = array[2][0];
-  // const drinksTotalVal = array[3][0];
   const totVal = starters.total
     .concat(mains.total)
     .concat(desserts.total)
@@ -233,11 +226,21 @@ dessertsBtnAdd.addEventListener('click', function (e) {
 
 drinksBtnAdd.addEventListener('click', function (e) {
   e.preventDefault();
-  addToOrder(drinks, drinksSum);
+  addToOrder(drinksSum);
 });
+
+// testing
+
+const displayData = function (array) {
+  totalCost.forEach((el, i) => {
+    window.localStorage.setItem(i, el.total);
+  });
+};
 
 paidBtn.addEventListener('click', function (e) {
   e.preventDefault();
+  window.localStorage.clear();
+  displayData(totalCost);
   totalCost.map((obj) => {
     obj.total = [];
     obj.veg = [];
@@ -245,3 +248,6 @@ paidBtn.addEventListener('click', function (e) {
   });
   updateBreakdown(totalCost);
 });
+
+var testObject = { URL: 1, TITLE: 2 };
+localStorage.setItem('testObject', JSON.stringify(testObject));

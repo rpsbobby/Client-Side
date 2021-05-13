@@ -26,7 +26,7 @@
   </head>
   <body>
     <section id="loginJumbo" class="">
-      <div class="jumbotron text-center m-5 border-primary bg-info" id="jumbo">
+      <div class="jumbotron text-center m-5" id="jumbo">
         <h1 class="display-1 font-weight-bold text-uppercase">Staff Login</h1>
         <div class="row">
           <div class="col-md-4 m-auto">
@@ -714,6 +714,17 @@
         </div>
       </section>
 
+      <footer id="main-footer" class="bg-dark text-white>
+        <div class="container">
+          <div class="row">
+            <div class="col text-center py-4  text-white">
+              <h3>Robert Szlufik</h3>
+              <p>copyright &copy; <span id="year"></span></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
       <!-- website end -->
     </section>
     <script src="script/page1.js"></script>
@@ -733,5 +744,9 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <script>
+      // Get the current year for the copyright - taken from online course 
+      $('#year').text(new Date().getFullYear());
+    </script>
   </body>
 </html>
