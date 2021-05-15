@@ -38,30 +38,77 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active ml-3">
+            <li class="nav-item ml-3">
               <a href="index.html" class="nav-link">Home</a>
             </li>
-            <li class="nav-item ml-3">
+            <li class="nav-item ml-3 active">
               <a href="page2.html" class="nav-link">Showcase</a>
+            </li>
+            <li class="nav-item ml-3">
+              <a href="https://github.com/rpsbobby/Client-Side" class="nav-link"
+                ><i class="fab fa-github fa-2x"></i
+              ></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="container my-3">
-      <img src="https://source.unsplash.com/1600x250/?restaurant" alt="" class="img-fluid">
-    </div>
 
     <section id="showcase">
+      <!-- CHART  -->
       <div class="container my-3">
         <canvas id="myChart"></canvas>
+      </div>
 
+      <!-- CAROUSEL -->
+      <!-- Carousel is based on online course I have  purchased, although it is significantly changed and customized, main functionality is borrowed  -->
+      <div class="card bg-light">
+        <div class="card-header text-center">
+          <h2 class="display-2">Thank You</h2>
+        </div>
+        <div class="card-body">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li
+                data-target="#myCarousel"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner">
+              <div class="carousel-item carousel-img-1 active"></div>
+
+              <div class="carousel-item carousel-img-2"></div>
+
+              <div class="carousel-item carousel-img-3"></div>
+            </div>
+
+            <a
+              href="#myCarousel"
+              data-slide="prev"
+              class="carousel-control-prev"
+            >
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a
+              href="#myCarousel"
+              data-slide="next"
+              class="carousel-control-next"
+            >
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
-    <footer id="main-footer" class="bg-dark text-white>
+
+    <footer id="showcase-footer" class="bg-dark text-white">
       <div class="container">
         <div class="row">
-          <div class="col text-center py-4  text-white">
+          <div class="col text-center py-4 text-white">
             <h3>Robert Szlufik</h3>
             <p>copyright &copy; <span id="year"></span></p>
           </div>
@@ -70,27 +117,31 @@
     </footer>
 
     <!-- website end -->
-  </section>
-  <script src="script/showcase.js"></script>
- 
-  <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"
-  ></script>
-  <script>
-    // Get the current year for the copyright - taken from online course 
-    $('#year').text(new Date().getFullYear());
-  </script>
+
+    <script src="script/showcase.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Get the current year for the copyright - taken from online course
+      $('#year').text(new Date().getFullYear());
+      $('.carousel').carousel({
+        interval: 3500,
+        pause: 'hover',
+      });
+    </script>
   </body>
 </html>

@@ -1,5 +1,8 @@
+// This Chart.js is created based on YouTube tutorial video -> https://www.youtube.com/watch?v=sE08f4iuOhA and Chart.js documentation -> https://www.chartjs.org/
+
 let myChart = document.getElementById('myChart').getContext('2d');
 
+// data retrieved from storage
 const temp = localStorage;
 console.log(temp);
 const data = [];
@@ -74,4 +77,10 @@ let barChart = new Chart(myChart, {
       padding: 50,
     },
   },
+});
+
+// carousel roll with jQuery
+$('.carousel').carousel({
+  interval: 1000,
+  pause: 'hover',
 });

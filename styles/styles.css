@@ -1,0 +1,23 @@
+.navbar .nav-item.active {
+  border-left: #444 3px solid;
+}
+
+.carousel-item {
+  height: 450px;
+}
+
+.carousel-img-1 {
+  background: url('https://source.unsplash.com/1920x450/?restaurant');
+  background-size: cover;
+  opacity: 0.9;
+}
+.carousel-img-2 {
+  background-size: cover;
+  background: url('https://source.unsplash.com/1920x451/?restaurant');
+  opacity: 0.9;
+}
+.carousel-img-3 {
+  background-size: cover;
+  background: url('https://source.unsplash.com/1920x449/?restaurant');
+  opacity: 0.9;
+}

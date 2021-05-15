@@ -6,6 +6,7 @@ const btnLogIn = document.getElementById('btnLogIn');
 const feedback = document.getElementById('feedback');
 
 const validate = function () {
+  //setting password to input field
   const password = String(paswordField.value);
   if (!password.match(regEx)) {
     paswordField.classList.add('is-invalid');
@@ -15,6 +16,7 @@ const validate = function () {
     paswordField.classList.remove('is-invalid');
     paswordField.classList.add('is-valid');
     feedback.classList.add('hide');
+    //if password is valid login button is enabled
     btnLogIn.addEventListener('click', function (e) {
       e.preventDefault();
       document.getElementById('loginJumbo').classList.add('d-none');
@@ -33,21 +35,22 @@ getUsers();
 const randomUserContainer = document.getElementById('users');
 function getUsers() {
   for (let i = 0; i < 5; i++) {
+    //fetch for API data
     fetch('https://randomuser.me/api/')
       .then((response) => response.json())
       .then((data) => {
         if (typeof data === 'undefined') {
           console.log(undefined);
         } else {
-          // console.log(data);
+          // assigning reqired information
           let results = data.results[0];
-          // console.log(results);
           let { title, first, last } = { ...results.name };
           let email = results.email;
           let pic = results.picture.large;
           let phoneNo = results.phone;
           let { city, _a, country, _b, _c, street } = results.location;
           let { name, number } = { ...street };
+          // outputing to DOM
           let output = `
           <div class="card">
         <div class="card-body">
@@ -91,15 +94,15 @@ const mains = {
 };
 
 const desserts = {
-  1: { name: 'brulee', price: 5.99, vegeterian: true },
-  2: { name: 'brownie', price: 5.99, vegeterian: true },
-  3: { name: 'tart', price: 5.99, vegeterian: true },
+  0: { name: 'brulee', price: 5.99, vegeterian: true },
+  1: { name: 'brownie', price: 5.99, vegeterian: true },
+  2: { name: 'tart', price: 5.99, vegeterian: true },
 };
 
 const drinks = {
-  0: { name: 'softDrinks', price: 2.99 },
-  1: { name: 'wine', price: 5.99 },
-  2: { name: 'beer', price: 5.99 },
+  0: { name: 'softDrinks', price: 2.99, vegetarian: true },
+  1: { name: 'wine', price: 5.99, vegetarian: true },
+  2: { name: 'beer', price: 5.99, vegetarian: true },
 };
 
 // add buttons
@@ -121,42 +124,45 @@ const dessertTotal = document.getElementById('dessertsTotal');
 const drinksTotal = document.getElementById('drinksTotal');
 const total = document.getElementById('total');
 
-// cost arrays
+// cost arrays - set up as objects so data can be manipulated easily
 
 let startersSum = {
   total: [],
   veg: [],
   nonVeg: [],
-}; // total / veg / nonveg
+};
 let mainsSum = {
   total: [],
   veg: [],
   nonVeg: [],
-}; // total / veg / nonveg
+};
 let dessertsSum = {
   total: [],
   veg: [],
   nonVeg: [],
-}; // total / veg / nonveg
+};
 let drinksSum = {
   total: [],
   veg: [],
   nonVeg: [],
-}; // total / veg / nonveg
+};
 let totalCost = [startersSum, mainsSum, dessertsSum, drinksSum];
 
 // methods
 
+// display number to 2 decimals points
 const dispEuro = function (n) {
   return `€${n.toFixed(2)}`;
 };
 
+// calculate sum of a array
 const calcSum = (a) =>
   a.flat().reduce((sum, current) => {
     sum += current;
     return sum;
   }, 0);
 
+// breakdown fields updated
 const updateBreakdown = function (array) {
   const [starters, mains, desserts, drinks] = [...array];
 
@@ -178,21 +184,24 @@ const updateBreakdown = function (array) {
 
 const addToOrder = function (menuItems, courseSumObject) {
   Object.entries(menuItems).forEach(([i, currenItem]) => {
+    // obtaining dom element and multipling
     let temp = document.getElementById(`${currenItem.name}`);
     let price = Number(currenItem.price);
-    let quanity = Number(temp.value);
+    let quantity = Number(temp.value);
+    // testing for numbers
+    if (isNaN(quantity)) {
+      return (quantity = 0);
+    }
 
-    let sum = price * quanity;
+    let sum = price * quantity;
+    // adding to arrays based on type
     if (sum !== 0) {
       courseSumObject.total.push(sum);
-      console.log(`number ${sum} added to ${courseSumObject.total} total`);
 
       if (menuItems[i].vegeterian) {
         courseSumObject.veg.push(sum);
-        console.log(`number ${sum} added to ${courseSumObject.veg} veg`);
       } else {
         courseSumObject.nonVeg.push(sum);
-        console.log(`number ${sum} added to ${courseSumObject.nonVeg} nonveg`);
       }
     }
   });
@@ -225,18 +234,22 @@ dessertsBtnAdd.addEventListener('click', function (e) {
 });
 
 drinksBtnAdd.addEventListener('click', function (e) {
+  console.log('drinks added');
   e.preventDefault();
-  addToOrder(drinksSum);
+  addToOrder(drinks, drinksSum);
 });
 
 // testing
 
-const displayData = function (array) {
+const displayData = function (_array) {
   totalCost.forEach((el, i) => {
     window.localStorage.setItem(i, el.total);
+    // window.localStorage.setItem(i, el.veg);
+    // window.localStorage.setItem(i, el.nonVeg);
   });
 };
 
+// when paid button is pressed data is send to localWindow for further display(page 2) and arrays get reset 
 paidBtn.addEventListener('click', function (e) {
   e.preventDefault();
   window.localStorage.clear();
@@ -248,6 +261,3 @@ paidBtn.addEventListener('click', function (e) {
   });
   updateBreakdown(totalCost);
 });
-
-var testObject = { URL: 1, TITLE: 2 };
-localStorage.setItem('testObject', JSON.stringify(testObject));
